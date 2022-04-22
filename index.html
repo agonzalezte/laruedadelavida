@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="icon" href="img/logofsfb.ico">
+  <title>La rueda de la vida</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
+  <!--[if lt IE 9]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->  
+  <script src="js/modernizr.js" type="text/javascript"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script type="text/javascript">
+  function validar() {
+    if(!$("input[name=A1]:checked").val()) {
+      swal("Alerta!", "Te falta responder una pregunta en la sección ¡trabajo!", "error");
+   return false;
+    }
+  else if(!$("input[name=A2]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡trabajo!", "error");return false;}
+  else if(!$("input[name=A3]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡trabajo!", "error");return false;}
+  else if(!$("input[name=A4]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡trabajo!", "error");return false;}
+  else if(!$("input[name=A5]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡trabajo!", "error");return false;}
+  else if(!$("input[name=A6]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡trabajo!", "error");return false;}
+  else if(!$("input[name=A7]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡trabajo!", "error");return false;}
+  else if(!$("input[name=A8]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡trabajo!", "error");return false;}
+  else if(!$("input[name=A9]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡trabajo!", "error");return false;}
+  else if(!$("input[name=A10]:checked").val()){swal("Alerta!", "Te falta responder una pregunta en la sección ¡trabajo!", "error");return false;}
+  else if(!$("input[name=B1]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Salud!", "error");return false;}
+  else if(!$("input[name=B2]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Salud!", "error");return false;}
+  else if(!$("input[name=B3]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Salud!", "error");return false;}
+  else if(!$("input[name=B4]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Salud!", "error");return false;}
+  else if(!$("input[name=B5]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Salud!", "error");return false;}
+  else if(!$("input[name=B6]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Salud!", "error");return false;}
+  else if(!$("input[name=B7]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Salud!", "error");return false;}
+  else if(!$("input[name=B8]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Salud!", "error");return false;}
+  else if(!$("input[name=B9]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Salud!", "error");return false;}
+  else if(!$("input[name=B10]:checked").val()){swal("Alerta!", "Te falta responder una pregunta en la sección ¡Salud!", "error");return false;}
+  else if(!$("input[name=C1]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Entorno Fisico!", "error");return false;}
+  else if(!$("input[name=C2]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Entorno Fisico!","error");return false;}
+  else if(!$("input[name=C3]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Entorno Fisico!","error");return false;}
+  else if(!$("input[name=C4]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Entorno Fisico!","error");return false;}
+  else if(!$("input[name=C5]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Entorno Fisico!","error");return false;}
+  else if(!$("input[name=C6]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Entorno Fisico!","error");return false;}
+  else if(!$("input[name=C7]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Entorno Fisico!","error");return false;}
+  else if(!$("input[name=C8]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Entorno Fisico!","error");return false;}
+  else if(!$("input[name=C9]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Entorno Fisico!","error");return false;}
+  else if(!$("input[name=C10]:checked").val()){swal("Alerta!", "Te falta responder una pregunta en la sección ¡Entorno Fisico!","error");;return false;}
+  else if(!$("input[name=D1]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Desarrollo Personal!","error");return false;}
+  else if(!$("input[name=D2]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Desarrollo Personal!","error");return false;}
+  else if(!$("input[name=D3]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Desarrollo Personal!","error");return false;}
+  else if(!$("input[name=D4]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Desarrollo Personal!","error");return false;}
+  else if(!$("input[name=D5]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Desarrollo Personal!","error");return false;}
+  else if(!$("input[name=D6]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Desarrollo Personal!","error");return false;}
+  else if(!$("input[name=D7]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Desarrollo Personal!","error");return false;}
+  else if(!$("input[name=D8]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Desarrollo Personal!","error");return false;}
+  else if(!$("input[name=D9]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Desarrollo Personal!","error");return false;}
+  else if(!$("input[name=D10]:checked").val()){swal("Alerta!", "Te falta responder una pregunta en la sección ¡Desarrollo Personal!","error");return false;}
+  else if(!$("input[name=E1]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Relaciones significativas!","error");return false;}
+  else if(!$("input[name=E2]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Relaciones significativas!","error");return false;}
+  else if(!$("input[name=E3]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Relaciones significativas!","error");return false;}
+  else if(!$("input[name=E4]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Relaciones significativas!","error");return false;}
+  else if(!$("input[name=E5]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Relaciones significativas!","error");return false;}
+  else if(!$("input[name=E6]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Relaciones significativas!","error");return false;}
+  else if(!$("input[name=E7]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Relaciones significativas!","error");return false;}
+  else if(!$("input[name=E8]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Relaciones significativas!","error");return false;}
+  else if(!$("input[name=E9]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Relaciones significativas!","error");return false;}
+  else if(!$("input[name=E10]:checked").val()){swal("Alerta!", "Te falta responder una pregunta en la sección ¡Relaciones significativas!","error");return false;}
+  // else if(!$("input[name=F1]:checked").val()) {aleAlertaLo siento, no podemos continuar. olvido responder la pregunta #51');return false;}
+  // else if(!$("input[name=F2]:checked").val()) {alert('Lo siento, no podemos continuar. olvido responder la pregunta #52');return false;}
+  // else if(!$("input[name=F3]:checked").val()) {alert('Lo siento, no podemos continuar. olvido responder la pregunta #53');return false;}
+  // else if(!$("input[name=F4]:checked").val()) {alert('Lo siento, no podemos continuar. olvido responder la pregunta #54');return false;}
+  // else if(!$("input[name=F5]:checked").val()) {alert('Lo siento, no podemos continuar. olvido responder la pregunta #55');return false;}
+  // else if(!$("input[name=F6]:checked").val()) {alert('Lo siento, no podemos continuar. olvido responder la pregunta #56');return false;}
+  // else if(!$("input[name=F7]:checked").val()) {alert('Lo siento, no podemos continuar. olvido responder la pregunta #57');return false;}
+  // else if(!$("input[name=F8]:checked").val()) {alert('Lo siento, no podemos continuar. olvido responder la pregunta #58');return false;}
+  // else if(!$("input[name=F9]:checked").val()) {alert('Lo siento, no podemos continuar. olvido responder la pregunta #59');return false;}
+  // else if(!$("input[name=F10]:checked").val()) {alert('Lo siento, no podemos continuar. olvido responder la pregunta #60');return false;}
+  else if(!$("input[name=G1]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Dinero!","error");return false;}
+  else if(!$("input[name=G2]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Dinero!","error");return false;}
+  else if(!$("input[name=G3]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Dinero!","error");return false;}
+  else if(!$("input[name=G4]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Dinero!","error");return false;}
+  else if(!$("input[name=G5]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Dinero!","error");return false;}
+  else if(!$("input[name=G6]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Dinero!","error");return false;}
+  else if(!$("input[name=G7]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Dinero!","error");return false;}
+  else if(!$("input[name=G8]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Dinero!","error");return false;}
+  else if(!$("input[name=G9]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Dinero!","error");return false;}
+  else if(!$("input[name=G10]:checked").val()){swal("Alerta!", "Te falta responder una pregunta en la sección ¡Dinero!","error");return false;}
+  else if(!$("input[name=H1]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Diversión y recreación!","error");return false;}
+  else if(!$("input[name=H2]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Diversión y recreación!","error");return false;}
+  else if(!$("input[name=H3]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Diversión y recreación!","error");return false;}
+  else if(!$("input[name=H4]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Diversión y recreación!","error");return false;}
+  else if(!$("input[name=H5]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Diversión y recreación!","error");return false;}
+  else if(!$("input[name=H6]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Diversión y recreación!","error");return false;}
+  else if(!$("input[name=H7]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Diversión y recreación!","error");return false;}
+  else if(!$("input[name=H8]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Diversión y recreación!","error");return false;}
+  else if(!$("input[name=H9]:checked").val()) {swal("Alerta!", "Te falta responder una pregunta en la sección ¡Diversión y recreación!","error");return false;}
+  else if(!$("input[name=H10]:checked").val()){swal("Alerta!", "Te falta responder una pregunta en la sección ¡Diversión y recreación!","error");return false;}
+    // Si el script ha llegado a este punto, todas las condiciones
+    // se han cumplido, por lo que se devuelve el valor true
+    return true;
+  }
+</script>
+</head>
+<body>
+
+  <div class="container-fluid p-3 bg-body text-center">
+    <img src="img/Imagen1.png" alt="..." > 
+  <h5>RUEDA DE LA VIDA</h5> 
+  <h3>Vinculados por un mismo propósito</h3>
+</div>
+  
+<div class="container mt-5">
+    
+    <p>Desde ahora, seremos aliados en la construcción  y consecución de tu propósito, que también es el ¡nuestro!
+      La rueda de la vida es una herramienta que permite identificar el equilibrio de distintos aspectos importantes en el desarrollo del ser humano. 
+      te invitamos que elegir una calificación para cada uno de las 7 categorías del ejercicio, en donde podrás seleccionar 
+      entre 1 (muy insatisfecho) y 10 (muy satisfecho), teniendo en cuenta la percepción de tu presente. </p>
+  <div class="row">
+    <div class="col-sm-4">
+      
+      <form class="comment-form" id="cuestionario" name="cuestionario" method="post" onsubmit="return validar()"  action="resultado_2.html">
+
+      <h3>Trabajo</h3>
+      <p>Hago lo necesario para avanzar en mi trabajo o empresa</p>
+        <p>
+        <label><input type="radio" name="A1" value="1"/> 1</label>
+        <label><input type="radio" name="A1" value="2"/> 2</label>
+        <label><input type="radio" name="A1" value="3"/> 3</label>
+        <label><input type="radio" name="A1" value="4"/> 4</label>
+        <label><input type="radio" name="A1" value="5"/> 5</label>
+        <label><input type="radio" name="A1" value="6"/> 6</label>
+        <label><input type="radio" name="A1" value="7"/> 7</label>
+        <label><input type="radio" name="A1" value="8"/> 8</label>
+        <label><input type="radio" name="A1" value="9"/> 9</label>
+        <label><input type="radio" name="A1" value="10"/> 10</label>
+        </p>
+        
+        <p>Disfruto cuando voy a trabajar</p>
+        <p>        
+        <label><input type="radio" name="A2" value="1"/> 1</label>
+        <label><input type="radio" name="A2" value="2"/> 2</label>
+        <label><input type="radio" name="A2" value="3"/> 3</label>
+        <label><input type="radio" name="A2" value="4"/> 4</label>
+        <label><input type="radio" name="A2" value="5"/> 5</label>
+        <label><input type="radio" name="A2" value="6"/> 6</label>
+        <label><input type="radio" name="A2" value="7"/> 7</label>
+        <label><input type="radio" name="A2" value="8"/> 8</label>
+        <label><input type="radio" name="A2" value="9"/> 9</label>
+        <label><input type="radio" name="A2" value="10"/> 10</label>
+        </p>
+        
+        <p>Estoy motivado para mejorar o mejorar mis competencias en mi trabajo</p>
+        <p>
+        <label><input type="radio" name="A3" value="1"/> 1</label>
+        <label><input type="radio" name="A3" value="2"/> 2</label>
+        <label><input type="radio" name="A3" value="3"/> 3</label>
+        <label><input type="radio" name="A3" value="4"/> 4</label>
+        <label><input type="radio" name="A3" value="5"/> 5</label>
+        <label><input type="radio" name="A3" value="6"/> 6</label>
+        <label><input type="radio" name="A3" value="7"/> 7</label>
+        <label><input type="radio" name="A3" value="8"/> 8</label>
+        <label><input type="radio" name="A3" value="9"/> 9</label>
+        <label><input type="radio" name="A3" value="10"/> 10</label>
+        </p>
+        
+        <p>Tengo un plan de carrera a largo plazo</p>
+        <p>
+        <label><input type="radio" name="A4" value="1"/> 1</label>
+        <label><input type="radio" name="A4" value="2"/> 2</label>
+        <label><input type="radio" name="A4" value="3"/> 3</label>
+        <label><input type="radio" name="A4" value="4"/> 4</label>
+        <label><input type="radio" name="A4" value="5"/> 5</label>
+        <label><input type="radio" name="A4" value="6"/> 6</label>
+        <label><input type="radio" name="A4" value="7"/> 7</label>
+        <label><input type="radio" name="A4" value="8"/> 8</label>
+        <label><input type="radio" name="A4" value="9"/> 9</label>
+        <label><input type="radio" name="A4" value="10"/> 10</label>
+        
+                                </p>
+        
+                                <p>Me comprometo para seguir y cumplir mis metas</p>
+        
+        
+                                <p>
+        
+                                  <label><input type="radio" name="A5" value="1"/> 1</label>
+        <label><input type="radio" name="A5" value="2"/> 2</label>
+        <label><input type="radio" name="A5" value="3"/> 3</label>
+        <label><input type="radio" name="A5" value="4"/> 4</label>
+        <label><input type="radio" name="A5" value="5"/> 5</label>
+        <label><input type="radio" name="A5" value="6"/> 6</label>
+        <label><input type="radio" name="A5" value="7"/> 7</label>
+        <label><input type="radio" name="A5" value="8"/> 8</label>
+        <label><input type="radio" name="A5" value="9"/> 9</label>
+        <label><input type="radio" name="A5" value="10"/> 10</label>
+        
+        </p>
+        
+        <p>Hago en mi carrera laboral lo que me hace feliz</p>
+        
+        
+        <p>
+        
+        <label><input type="radio" name="A6" value="1"/> 1</label>
+        <label><input type="radio" name="A6" value="2"/> 2</label>
+        <label><input type="radio" name="A6" value="3"/> 3</label>
+        <label><input type="radio" name="A6" value="4"/> 4</label>
+        <label><input type="radio" name="A6" value="5"/> 5</label>
+        <label><input type="radio" name="A6" value="6"/> 6</label>
+        <label><input type="radio" name="A6" value="7"/> 7</label>
+        <label><input type="radio" name="A6" value="8"/> 8</label>
+        <label><input type="radio" name="A6" value="9"/> 9</label>
+        <label><input type="radio" name="A6" value="10"/> 10</label>
+        
+        </p>
+        
+    <p>Me  enorgullecen las aportaciones y contribuciones que realizo en mi vida profesional</p>
+        
+        <p>
+        
+        <label><input type="radio" name="A7" value="1"/> 1</label>
+        <label><input type="radio" name="A7" value="2"/> 2</label>
+        <label><input type="radio" name="A7" value="3"/> 3</label>
+        <label><input type="radio" name="A7" value="4"/> 4</label>
+        <label><input type="radio" name="A7" value="5"/> 5</label>
+        <label><input type="radio" name="A7" value="6"/> 6</label>
+        <label><input type="radio" name="A7" value="7"/> 7</label>
+        <label><input type="radio" name="A7" value="8"/> 8</label>
+        <label><input type="radio" name="A7" value="9"/> 9</label>
+        <label><input type="radio" name="A7" value="10"/> 10</label>
+        
+                               </p>
+                                
+                                
+       <p>El trabajo me cubre mis necesidades de ingresos  personales</p>
+        
+        
+        <p>
+        
+        <label><input type="radio" name="A8" value="1"/> 1</label>
+        <label><input type="radio" name="A8" value="2"/> 2</label>
+        <label><input type="radio" name="A8" value="3"/> 3</label>
+        <label><input type="radio" name="A8" value="4"/> 4</label>
+        <label><input type="radio" name="A8" value="5"/> 5</label>
+        <label><input type="radio" name="A8" value="6"/> 6</label>
+        <label><input type="radio" name="A8" value="7"/> 7</label>
+        <label><input type="radio" name="A8" value="8"/> 8</label>
+        <label><input type="radio" name="A8" value="9"/> 9</label>
+        <label><input type="radio" name="A8" value="10"/> 10</label>
+        </p>
+        
+      <p>Estoy haciendo lo suficiente para proteger mi trabajo</p>
+        
+        <p>
+        
+        <label><input type="radio" name="A9" value="1"/> 1</label>
+        <label><input type="radio" name="A9" value="2"/> 2</label>
+        <label><input type="radio" name="A9" value="3"/> 3</label>
+        <label><input type="radio" name="A9" value="4"/> 4</label>
+        <label><input type="radio" name="A9" value="5"/> 5</label>
+        <label><input type="radio" name="A9" value="6"/> 6</label>
+        <label><input type="radio" name="A9" value="7"/> 7</label>
+        <label><input type="radio" name="A9" value="8"/> 8</label>
+        <label><input type="radio" name="A9" value="9"/> 9</label>
+        <label><input type="radio" name="A9" value="10"/> 10</label>
+                                </p>
+        
+        <p>Tengo buenas relaciones con las personas con las que trabajo</p>
+                                <p>
+        
+        <label><input type="radio" name="A10" value="1"/> 1</label>
+        <label><input type="radio" name="A10" value="2"/> 2</label>
+        <label><input type="radio" name="A10" value="3"/> 3</label>
+        <label><input type="radio" name="A10" value="4"/> 4</label>
+        <label><input type="radio" name="A10" value="5"/> 5</label>
+        <label><input type="radio" name="A10" value="6"/> 6</label>
+        <label><input type="radio" name="A10" value="7"/> 7</label>
+        <label><input type="radio" name="A10" value="8"/> 8</label>
+        <label><input type="radio" name="A10" value="9"/> 9</label>
+        <label><input type="radio" name="A10" value="10"/> 10</label>
+        
+                                </p>
+                                
+                                <p>
+                                <h3>Salud</h3>
+                                
+                                </p>
+        
+        <p>Tengo un buen estado de salud físico</p>
+        
+        
+        
+        <p>
+        
+        <label><input type="radio" name="B1" value="1"/> 1</label>
+        <label><input type="radio" name="B1" value="2"/> 2</label>
+        <label><input type="radio" name="B1" value="3"/> 3</label>
+        <label><input type="radio" name="B1" value="4"/> 4</label>
+        <label><input type="radio" name="B1" value="5"/> 5</label>
+        <label><input type="radio" name="B1" value="6"/> 6</label>
+        <label><input type="radio" name="B1" value="7"/> 7</label>
+        <label><input type="radio" name="B1" value="8"/> 8</label>
+        <label><input type="radio" name="B1" value="9"/> 9</label>
+        <label><input type="radio" name="B1" value="10"/> 10</label>
+        
+                                </p>
+        
+        <p>Estoy satisfecho con el tipo y cantidad de descanso que tengo en mi vida</p>
+        
+        
+                                <p>
+        
+                                  <label><input type="radio" name="B2" value="1"/> 1</label>
+        <label><input type="radio" name="B2" value="2"/> 2</label>
+        <label><input type="radio" name="B2" value="3"/> 3</label>
+        <label><input type="radio" name="B2" value="4"/> 4</label>
+        <label><input type="radio" name="B2" value="5"/> 5</label>
+        <label><input type="radio" name="B2" value="6"/> 6</label>
+        <label><input type="radio" name="B2" value="7"/> 7</label>
+        <label><input type="radio" name="B2" value="8"/> 8</label>
+        <label><input type="radio" name="B2" value="9"/> 9</label>
+        <label><input type="radio" name="B2" value="10"/> 10</label>
+        </p>
+        
+        <p>Considero adecuado el  manejo de mis emociones.</p>
+        
+        <p>
+        
+        <label><input type="radio" name="B3" value="1"/> 1</label>
+        <label><input type="radio" name="B3" value="2"/> 2</label>
+        <label><input type="radio" name="B3" value="3"/> 3</label>
+        <label><input type="radio" name="B3" value="4"/> 4</label>
+        <label><input type="radio" name="B3" value="5"/> 5</label>
+        <label><input type="radio" name="B3" value="6"/> 6</label>
+        <label><input type="radio" name="B3" value="7"/> 7</label>
+        <label><input type="radio" name="B3" value="8"/> 8</label>
+        <label><input type="radio" name="B3" value="9"/> 9</label>
+        <label><input type="radio" name="B3" value="10"/> 10</label>
+                                </p>
+        
+        <p>1Tengo una dieta balanceada en mi consumo de alimentos</p>
+        
+        
+        
+        
+                                <p>
+        
+                                  <label><input type="radio" name="B4" value="1"/> 1</label>
+        <label><input type="radio" name="B4" value="2"/> 2</label>
+        <label><input type="radio" name="B4" value="3"/> 3</label>
+        <label><input type="radio" name="B4" value="4"/> 4</label>
+        <label><input type="radio" name="B4" value="5"/> 5</label>
+        <label><input type="radio" name="B4" value="6"/> 6</label>
+        <label><input type="radio" name="B4" value="7"/> 7</label>
+        <label><input type="radio" name="B4" value="8"/> 8</label>
+        <label><input type="radio" name="B4" value="9"/> 9</label>
+        <label><input type="radio" name="B4" value="10"/> 10</label>
+        
+                                </p>
+        
+                               <p>Mi ropa me queda y me siento bien</p>
+        
+        
+                                <p>
+        
+                                 <label><input type="radio" name="B5" value="1"/> 1</label>
+        <label><input type="radio" name="B5" value="2"/> 2</label>
+        <label><input type="radio" name="B5" value="3"/> 3</label>
+        <label><input type="radio" name="B5" value="4"/> 4</label>
+        <label><input type="radio" name="B5" value="5"/> 5</label>
+        <label><input type="radio" name="B5" value="6"/> 6</label>
+        <label><input type="radio" name="B5" value="7"/> 7</label>
+        <label><input type="radio" name="B5" value="8"/> 8</label>
+        <label><input type="radio" name="B5" value="9"/> 9</label>
+        <label><input type="radio" name="B5" value="10"/> 10</label>
+                                </p>
+        
+                               <p>Me hidrato constantemente durante el dia </p>
+        
+                                <p>
+        
+                                 <label><input type="radio" name="B6" value="1"/> 1</label>
+        <label><input type="radio" name="B6" value="2"/> 2</label>
+        <label><input type="radio" name="B6" value="3"/> 3</label>
+        <label><input type="radio" name="B6" value="4"/> 4</label>
+        <label><input type="radio" name="B6" value="5"/> 5</label>
+        <label><input type="radio" name="B6" value="6"/> 6</label>
+        <label><input type="radio" name="B6" value="7"/> 7</label>
+        <label><input type="radio" name="B6" value="8"/> 8</label>
+        <label><input type="radio" name="B6" value="9"/> 9</label>
+        <label><input type="radio" name="B6" value="10"/> 10</label>
+        
+                                </p>
+        
+                                <p>Hago ejercicio regularmente</p>
+        
+        
+                                <p>
+        
+                                  <label><input type="radio" name="B7" value="1"/> 1</label>
+        <label><input type="radio" name="B7" value="2"/> 2</label>
+        <label><input type="radio" name="B7" value="3"/> 3</label>
+        <label><input type="radio" name="B7" value="4"/> 4</label>
+        <label><input type="radio" name="B7" value="5"/> 5</label>
+        <label><input type="radio" name="B7" value="6"/> 6</label>
+        <label><input type="radio" name="B7" value="7"/> 7</label>
+        <label><input type="radio" name="B7" value="8"/> 8</label>
+        <label><input type="radio" name="B7" value="9"/> 9</label>
+        <label><input type="radio" name="B7" value="10"/> 10</label>
+                                </p>
+        
+                              <p>Mi  nivel de estrés no afecta  en mis actividades diarias</p>
+        
+                                <p>
+        
+                                  <label><input type="radio" name="B8" value="1"/> 1</label>
+        <label><input type="radio" name="B8" value="2"/> 2</label>
+        <label><input type="radio" name="B8" value="3"/> 3</label>
+        <label><input type="radio" name="B8" value="4"/> 4</label>
+        <label><input type="radio" name="B8" value="5"/> 5</label>
+        <label><input type="radio" name="B8" value="6"/> 6</label>
+        <label><input type="radio" name="B8" value="7"/> 7</label>
+        <label><input type="radio" name="B8" value="8"/> 8</label>
+        <label><input type="radio" name="B8" value="9"/> 9</label>
+        <label><input type="radio" name="B8" value="10"/> 10</label>
+                                </p>
+        
+                               <p>La cantidad de horas de sueño diarias es suficiente</p>
+        
+        
+        
+                                <p>
+        
+                                  <label><input type="radio" name="B9" value="1"/> 1</label>
+        <label><input type="radio" name="B9" value="2"/> 2</label>
+        <label><input type="radio" name="B9" value="3"/> 3</label>
+        <label><input type="radio" name="B9" value="4"/> 4</label>
+        <label><input type="radio" name="B9" value="5"/> 5</label>
+        <label><input type="radio" name="B9" value="6"/> 6</label>
+        <label><input type="radio" name="B9" value="7"/> 7</label>
+        <label><input type="radio" name="B9" value="8"/> 8</label>
+        <label><input type="radio" name="B9" value="9"/> 9</label>
+        <label><input type="radio" name="B9" value="10"/> 10</label>
+        
+                                </p>
+        
+                                <p>Consumo alcohol  o tabaco con moderación, sin afectar mi salud</p>
+        
+                                <p>
+        
+                                  <label><input type="radio" name="B10" value="1"/> 1</label>
+        <label><input type="radio" name="B10" value="2"/> 2</label>
+        <label><input type="radio" name="B10" value="3"/> 3</label>
+        <label><input type="radio" name="B10" value="4"/> 4</label>
+        <label><input type="radio" name="B10" value="5"/> 5</label>
+        <label><input type="radio" name="B10" value="6"/> 6</label>
+        <label><input type="radio" name="B10" value="7"/> 7</label>
+        <label><input type="radio" name="B10" value="8"/> 8</label>
+        <label><input type="radio" name="B10" value="9"/> 9</label>
+        <label><input type="radio" name="B10" value="10"/> 10</label>
+        
+                                </p>
+                                
+                                  <p>
+                                <h3>Entorno Fisico</h3>
+                                
+                                </p>
+        
+                               <p>Hay suficiente luz en mi área de trabajo</p>
+        
+        
+        
+                                <p>
+        
+                                  <label><input type="radio" name="C1" value="1"/> 1</label>
+        <label><input type="radio" name="C1" value="2"/> 2</label>
+        <label><input type="radio" name="C1" value="3"/> 3</label>
+        <label><input type="radio" name="C1" value="4"/> 4</label>
+        <label><input type="radio" name="C1" value="5"/> 5</label>
+        <label><input type="radio" name="C1" value="6"/> 6</label>
+        <label><input type="radio" name="C1" value="7"/> 7</label>
+        <label><input type="radio" name="C1" value="8"/> 8</label>
+        <label><input type="radio" name="C1" value="9"/> 9</label>
+        <label><input type="radio" name="C1" value="10"/> 10</label>
+        
+                                </p>
+        
+                              <p>Tengo ventanas que permitan la libre circulación de aire o bien equipo de aire acondicionado que mantenga  mi oficina con aire puro o circulando</p>
+        
+                                <p>
+        
+                                 <label><input type="radio" name="C2" value="1"/> 1</label>
+        <label><input type="radio" name="C2" value="2"/> 2</label>
+        <label><input type="radio" name="C2" value="3"/> 3</label>
+        <label><input type="radio" name="C2" value="4"/> 4</label>
+        <label><input type="radio" name="C2" value="5"/> 5</label>
+        <label><input type="radio" name="C2" value="6"/> 6</label>
+        <label><input type="radio" name="C2" value="7"/> 7</label>
+        <label><input type="radio" name="C2" value="8"/> 8</label>
+        <label><input type="radio" name="C2" value="9"/> 9</label>
+        <label><input type="radio" name="C2" value="10"/> 10</label>
+        
+                                </p>
+        
+                               <p>Estoy conforme con la ubicación de mi trabajo y el tiempo de transporte que utilizo
+                              </p>
+        
+        
+        
+                                <p>
+        
+        <label><input type="radio" name="C3" value="1"/> 1</label>
+        <label><input type="radio" name="C3" value="2"/> 2</label>
+        <label><input type="radio" name="C3" value="3"/> 3</label>
+        <label><input type="radio" name="C3" value="4"/> 4</label>
+        <label><input type="radio" name="C3" value="5"/> 5</label>
+        <label><input type="radio" name="C3" value="6"/> 6</label>
+        <label><input type="radio" name="C3" value="7"/> 7</label>
+        <label><input type="radio" name="C3" value="8"/> 8</label>
+        <label><input type="radio" name="C3" value="9"/> 9</label>
+        <label><input type="radio" name="C3" value="10"/> 10</label>
+                                </p>
+        
+                              <p>-Mi trabajo no me causa estrés extraordinario</p>
+        
+        
+        <p>
+        
+                                  <label><input type="radio" name="C4" value="1"/> 1</label>
+        <label><input type="radio" name="C4" value="2"/> 2</label>
+        <label><input type="radio" name="C4" value="3"/> 3</label>
+        <label><input type="radio" name="C4" value="4"/> 4</label>
+        <label><input type="radio" name="C4" value="5"/> 5</label>
+        <label><input type="radio" name="C4" value="6"/> 6</label>
+        <label><input type="radio" name="C4" value="7"/> 7</label>
+        <label><input type="radio" name="C4" value="8"/> 8</label>
+        <label><input type="radio" name="C4" value="9"/> 9</label>
+        <label><input type="radio" name="C4" value="10"/> 10</label>
+        
+                                </p>
+        
+                               <p>Mi casa está generalmente limpia y ordenada</p>
+        
+                                <p>
+        
+                                  <label><input type="radio" name="C5" value="1"/> 1</label>
+        <label><input type="radio" name="C5" value="2"/> 2</label>
+        <label><input type="radio" name="C5" value="3"/> 3</label>
+        <label><input type="radio" name="C5" value="4"/> 4</label>
+        <label><input type="radio" name="C5" value="5"/> 5</label>
+        <label><input type="radio" name="C5" value="6"/> 6</label>
+        <label><input type="radio" name="C5" value="7"/> 7</label>
+        <label><input type="radio" name="C5" value="8"/> 8</label>
+        <label><input type="radio" name="C5" value="9"/> 9</label>
+        <label><input type="radio" name="C5" value="10"/> 10</label>
+        
+                                </p>
+        
+                               
+        
+                                <p>La ciudad donde resido cumple con todas mis expectativas de calidad de vida</p>
+        
+        
+                                <p>
+        
+                                  <label><input type="radio" name="C6" value="1"/> 1</label>
+        <label><input type="radio" name="C6" value="2"/> 2</label>
+        <label><input type="radio" name="C6" value="3"/> 3</label>
+        <label><input type="radio" name="C6" value="4"/> 4</label>
+        <label><input type="radio" name="C6" value="5"/> 5</label>
+        <label><input type="radio" name="C6" value="6"/> 6</label>
+        <label><input type="radio" name="C6" value="7"/> 7</label>
+        <label><input type="radio" name="C6" value="8"/> 8</label>
+        <label><input type="radio" name="C6" value="9"/> 9</label>
+        <label><input type="radio" name="C6" value="10"/> 10</label>
+                                </p>
+        
+                               <p>Estoy conforme en el barrio donde vivo</p>
+        
+                                <p>
+        
+                                  <label><input type="radio" name="C7" value="1"/> 1</label>
+        <label><input type="radio" name="C7" value="2"/> 2</label>
+        <label><input type="radio" name="C7" value="3"/> 3</label>
+        <label><input type="radio" name="C7" value="4"/> 4</label>
+        <label><input type="radio" name="C7" value="5"/> 5</label>
+        <label><input type="radio" name="C7" value="6"/> 6</label>
+        <label><input type="radio" name="C7" value="7"/> 7</label>
+        <label><input type="radio" name="C7" value="8"/> 8</label>
+        <label><input type="radio" name="C7" value="9"/> 9</label>
+        <label><input type="radio" name="C7" value="10"/> 10</label>
+                                </p>
+        
+                              <p>Adquiero las cosas materiales que me gustan</p>
+        
+        
+        
+                                <p>
+        
+                                 <label><input type="radio" name="C8" value="1"/> 1</label>
+        <label><input type="radio" name="C8" value="2"/> 2</label>
+        <label><input type="radio" name="C8" value="3"/> 3</label>
+        <label><input type="radio" name="C8" value="4"/> 4</label>
+        <label><input type="radio" name="C8" value="5"/> 5</label>
+        <label><input type="radio" name="C8" value="6"/> 6</label>
+        <label><input type="radio" name="C8" value="7"/> 7</label>
+        <label><input type="radio" name="C8" value="8"/> 8</label>
+        <label><input type="radio" name="C8" value="9"/> 9</label>
+        <label><input type="radio" name="C8" value="10"/> 10</label>
+        
+                                </p>
+        <p>La contaminación ambiental no me afecta, ni me consume energía adicional</p>
+        
+                                <p>
+        
+                                  <label><input type="radio" name="C9" value="1"/> 1</label>
+        <label><input type="radio" name="C9" value="2"/> 2</label>
+        <label><input type="radio" name="C9" value="3"/> 3</label>
+        <label><input type="radio" name="C9" value="4"/> 4</label>
+        <label><input type="radio" name="C9" value="5"/> 5</label>
+        <label><input type="radio" name="C9" value="6"/> 6</label>
+        <label><input type="radio" name="C9" value="7"/> 7</label>
+        <label><input type="radio" name="C9" value="8"/> 8</label>
+        <label><input type="radio" name="C9" value="9"/> 9</label>
+        <label><input type="radio" name="C9" value="10"/> 10</label>
+                                </p>
+        
+                               <p>El nivel de ruido alrededor  de m casa o trabajo no me molesta</p>
+        
+        
+                                <p>
+        
+                                  <label><input type="radio" name="C10" value="1"/> 1</label>
+        <label><input type="radio" name="C10" value="2"/> 2</label>
+        <label><input type="radio" name="C10" value="3"/> 3</label>
+        <label><input type="radio" name="C10" value="4"/> 4</label>
+        <label><input type="radio" name="C10" value="5"/> 5</label>
+        <label><input type="radio" name="C10" value="6"/> 6</label>
+        <label><input type="radio" name="C10" value="7"/> 7</label>
+        <label><input type="radio" name="C10" value="8"/> 8</label>
+        <label><input type="radio" name="C10" value="9"/> 9</label>
+        <label><input type="radio" name="C10" value="10"/> 10</label>
+                                </p>
+                                
+                                  <p>
+                                <h3>Desarrollo Personal</h3>
+                                
+                                </p>
+        
+                               <p>Tengo claras que habilidades, atributos o áreas quiero desarrollar en un año</p>
+        
+        
+        
+                                <p>
+        
+                                  <label><input type="radio" name="D1" value="1"/> 1</label>
+        <label><input type="radio" name="D1" value="2"/> 2</label>
+        <label><input type="radio" name="D1" value="3"/> 3</label>
+        <label><input type="radio" name="D1" value="4"/> 4</label>
+        <label><input type="radio" name="D1" value="5"/> 5</label>
+        <label><input type="radio" name="D1" value="6"/> 6</label>
+        <label><input type="radio" name="D1" value="7"/> 7</label>
+        <label><input type="radio" name="D1" value="8"/> 8</label>
+        <label><input type="radio" name="D1" value="9"/> 9</label>
+        <label><input type="radio" name="D1" value="10"/> 10</label>
+                                </p>
+        
+                              <p>Tengo una visión clara hacia a donde me dirijo en mi vida</p>
+        
+                                <p>
+        
+                                  <label><input type="radio" name="D2" value="1"/> 1</label>
+        <label><input type="radio" name="D2" value="2"/> 2</label>
+        <label><input type="radio" name="D2" value="3"/> 3</label>
+        <label><input type="radio" name="D2" value="4"/> 4</label>
+        <label><input type="radio" name="D2" value="5"/> 5</label>
+        <label><input type="radio" name="D2" value="6"/> 6</label>
+        <label><input type="radio" name="D2" value="7"/> 7</label>
+        <label><input type="radio" name="D2" value="8"/> 8</label>
+        <label><input type="radio" name="D2" value="9"/> 9</label>
+        <label><input type="radio" name="D2" value="10"/> 10</label>
+        
+                                </p>
+        
+                               <p>Tengo un plan de acción para poder llegar a esa visión</p>
+        
+        
+                                <p>
+        
+                                  <label><input type="radio" name="D3" value="1"/> 1</label>
+        <label><input type="radio" name="D3" value="2"/> 2</label>
+        <label><input type="radio" name="D3" value="3"/> 3</label>
+        <label><input type="radio" name="D3" value="4"/> 4</label>
+        <label><input type="radio" name="D3" value="5"/> 5</label>
+        <label><input type="radio" name="D3" value="6"/> 6</label>
+        <label><input type="radio" name="D3" value="7"/> 7</label>
+        <label><input type="radio" name="D3" value="8"/> 8</label>
+        <label><input type="radio" name="D3" value="9"/> 9</label>
+        <label><input type="radio" name="D3" value="10"/> 10</label>
+        
+                                </p>
+        
+                               <p>Tengo confianza en mí mismo</p>
+        
+        
+                                <p>
+        
+                                 <label><input type="radio" name="D4" value="1"/> 1</label>
+        <label><input type="radio" name="D4" value="2"/> 2</label>
+        <label><input type="radio" name="D4" value="3"/> 3</label>
+        <label><input type="radio" name="D4" value="4"/> 4</label>
+        <label><input type="radio" name="D4" value="5"/> 5</label>
+        <label><input type="radio" name="D4" value="6"/> 6</label>
+        <label><input type="radio" name="D4" value="7"/> 7</label>
+        <label><input type="radio" name="D4" value="8"/> 8</label>
+        <label><input type="radio" name="D4" value="9"/> 9</label>
+        <label><input type="radio" name="D4" value="10"/> 10</label>
+                                </p>
+        
+                              <p>Mi  desarrollo personal está acoplado con mi pasión, experiencia y habilidades</p>
+        
+                                <p>
+        
+                                 <label><input type="radio" name="D5" value="1"/> 1</label>
+        <label><input type="radio" name="D5" value="2"/> 2</label>
+        <label><input type="radio" name="D5" value="3"/> 3</label>
+        <label><input type="radio" name="D5" value="4"/> 4</label>
+        <label><input type="radio" name="D5" value="5"/> 5</label>
+        <label><input type="radio" name="D5" value="6"/> 6</label>
+        <label><input type="radio" name="D5" value="7"/> 7</label>
+        <label><input type="radio" name="D5" value="8"/> 8</label>
+        <label><input type="radio" name="D5" value="9"/> 9</label>
+        <label><input type="radio" name="D5" value="10"/> 10</label>
+        
+                                </p>
+        
+                                <p>Lo que he logrado en mi carrera  me llena de orgullo</p>
+        
+        
+        
+                                <p>
+        
+                                  <label><input type="radio" name="D6" value="1"/> 1</label>
+        <label><input type="radio" name="D6" value="2"/> 2</label>
+        <label><input type="radio" name="D6" value="3"/> 3</label>
+        <label><input type="radio" name="D6" value="4"/> 4</label>
+        <label><input type="radio" name="D6" value="5"/> 5</label>
+        <label><input type="radio" name="D6" value="6"/> 6</label>
+        <label><input type="radio" name="D6" value="7"/> 7</label>
+        <label><input type="radio" name="D6" value="8"/> 8</label>
+        <label><input type="radio" name="D6" value="9"/> 9</label>
+        <label><input type="radio" name="D6" value="10"/> 10</label>
+        
+                                </p>
+        
+                              <p>Celebro mis éxitos como un reconocimiento a mis logros</p>
+        
+        
+                                <p>
+        
+                                  <label><input type="radio" name="D7" value="1"/> 1</label>
+        <label><input type="radio" name="D7" value="2"/> 2</label>
+        <label><input type="radio" name="D7" value="3"/> 3</label>
+        <label><input type="radio" name="D7" value="4"/> 4</label>
+        <label><input type="radio" name="D7" value="5"/> 5</label>
+        <label><input type="radio" name="D7" value="6"/> 6</label>
+        <label><input type="radio" name="D7" value="7"/> 7</label>
+        <label><input type="radio" name="D7" value="8"/> 8</label>
+        <label><input type="radio" name="D7" value="9"/> 9</label>
+        <label><input type="radio" name="D7" value="10"/> 10</label>
+        
+                                </p>
+        
+                                <p>Utilizo y ajusto los  aprendizajes derivados de mis fracasos</p>
+        
+                                <p>
+        
+                                  <label><input type="radio" name="D8" value="1"/> 1</label>
+        <label><input type="radio" name="D8" value="2"/> 2</label>
+        <label><input type="radio" name="D8" value="3"/> 3</label>
+        <label><input type="radio" name="D8" value="4"/> 4</label>
+        <label><input type="radio" name="D8" value="5"/> 5</label>
+        <label><input type="radio" name="D8" value="6"/> 6</label>
+        <label><input type="radio" name="D8" value="7"/> 7</label>
+        <label><input type="radio" name="D8" value="8"/> 8</label>
+        <label><input type="radio" name="D8" value="9"/> 9</label>
+        <label><input type="radio" name="D8" value="10"/> 10</label>
+        
+                                </p>
+        
+                                <p>Estoy motivado en este momento para mejorar mis habilidades y competencias</p>
+        
+        
+                                <p>
+        
+                                  <label><input type="radio" name="D9" value="1"/> 1</label>
+        <label><input type="radio" name="D9" value="2"/> 2</label>
+        <label><input type="radio" name="D9" value="3"/> 3</label>
+        <label><input type="radio" name="D9" value="4"/> 4</label>
+        <label><input type="radio" name="D9" value="5"/> 5</label>
+        <label><input type="radio" name="D9" value="6"/> 6</label>
+        <label><input type="radio" name="D9" value="7"/> 7</label>
+        <label><input type="radio" name="D9" value="8"/> 8</label>
+        <label><input type="radio" name="D9" value="9"/> 9</label>
+        <label><input type="radio" name="D9" value="10"/> 10</label>
+                                </p>
+        
+                               <p>Mi carrera  es lo que yo esperaba que fuera</p>
+        
+                                <p>
+        
+                                  <label><input type="radio" name="D10" value="1"/> 1</label>
+        <label><input type="radio" name="D10" value="2"/> 2</label>
+        <label><input type="radio" name="D10" value="3"/> 3</label>
+        <label><input type="radio" name="D10" value="4"/> 4</label>
+        <label><input type="radio" name="D10" value="5"/> 5</label>
+        <label><input type="radio" name="D10" value="6"/> 6</label>
+        <label><input type="radio" name="D10" value="7"/> 7</label>
+        <label><input type="radio" name="D10" value="8"/> 8</label>
+        <label><input type="radio" name="D10" value="9"/> 9</label>
+        <label><input type="radio" name="D10" value="10"/> 10</label>
+        
+                                </p>
+                                
+                                  <p>
+                                <h3>Relaciones significativas</h3>
+                                
+                                </p>
+        
+                                <p>Nos comunicamos bien entre los miembros de la familia y nos escuchamos</p>
+        
+        
+                                <p>
+        
+                                  <label><input type="radio" name="E1" value="1"/> 1</label>
+        <label><input type="radio" name="E1" value="2"/> 2</label>
+        <label><input type="radio" name="E1" value="3"/> 3</label>
+        <label><input type="radio" name="E1" value="4"/> 4</label>
+        <label><input type="radio" name="E1" value="5"/> 5</label>
+        <label><input type="radio" name="E1" value="6"/> 6</label>
+        <label><input type="radio" name="E1" value="7"/> 7</label>
+        <label><input type="radio" name="E1" value="8"/> 8</label>
+        <label><input type="radio" name="E1" value="9"/> 9</label>
+        <label><input type="radio" name="E1" value="10"/> 10</label>
+        
+                                </p>
+        
+                               <p>En familia nos respetamos unos a otros. </p>
+        
+                                <p>
+        
+                                  <label><input type="radio" name="E2" value="1"/> 1</label>
+        <label><input type="radio" name="E2" value="2"/> 2</label>
+        <label><input type="radio" name="E2" value="3"/> 3</label>
+        <label><input type="radio" name="E2" value="4"/> 4</label>
+        <label><input type="radio" name="E2" value="5"/> 5</label>
+        <label><input type="radio" name="E2" value="6"/> 6</label>
+        <label><input type="radio" name="E2" value="7"/> 7</label>
+        <label><input type="radio" name="E2" value="8"/> 8</label>
+        <label><input type="radio" name="E2" value="9"/> 9</label>
+        <label><input type="radio" name="E2" value="10"/> 10</label>
+                                </p>
+        
+                                <p>Estoy feliz con mi vida social</p>
+        
+        
+                                <p>
+        
+                                  <label><input type="radio" name="E3" value="1"/> 1</label>
+        <label><input type="radio" name="E3" value="2"/> 2</label>
+        <label><input type="radio" name="E3" value="3"/> 3</label>
+        <label><input type="radio" name="E3" value="4"/> 4</label>
+        <label><input type="radio" name="E3" value="5"/> 5</label>
+        <label><input type="radio" name="E3" value="6"/> 6</label>
+        <label><input type="radio" name="E3" value="7"/> 7</label>
+        <label><input type="radio" name="E3" value="8"/> 8</label>
+        <label><input type="radio" name="E3" value="9"/> 9</label>
+        <label><input type="radio" name="E3" value="10"/> 10</label>
+                                </p>
+        
+                               <p>Mi familia y mis amigos saben que puedo depender de ellos  cuando los necesito</p>
+        
+        
+                                <p>
+        
+                                  <label><input type="radio" name="E4" value="1"/> 1</label>
+        <label><input type="radio" name="E4" value="2"/> 2</label>
+        <label><input type="radio" name="E4" value="3"/> 3</label>
+        <label><input type="radio" name="E4" value="4"/> 4</label>
+        <label><input type="radio" name="E4" value="5"/> 5</label>
+        <label><input type="radio" name="E4" value="6"/> 6</label>
+        <label><input type="radio" name="E4" value="7"/> 7</label>
+        <label><input type="radio" name="E4" value="8"/> 8</label>
+        <label><input type="radio" name="E4" value="9"/> 9</label>
+        <label><input type="radio" name="E4" value="10"/> 10</label>
+                                </p>
+        
+                                <p>Puedo expresar y demostrar mis sentimientos  con las personas  a quien quiero</p>
+        
+        
+                                <p>
+        
+                                  <label><input type="radio" name="E5" value="1"/> 1</label>
+        <label><input type="radio" name="E5" value="2"/> 2</label>
+        <label><input type="radio" name="E5" value="3"/> 3</label>
+        <label><input type="radio" name="E5" value="4"/> 4</label>
+        <label><input type="radio" name="E5" value="5"/> 5</label>
+        <label><input type="radio" name="E5" value="6"/> 6</label>
+        <label><input type="radio" name="E5" value="7"/> 7</label>
+        <label><input type="radio" name="E5" value="8"/> 8</label>
+        <label><input type="radio" name="E5" value="9"/> 9</label>
+        <label><input type="radio" name="E5" value="10"/> 10</label>
+        
+                                </p>
+        
+                                <p>Estoy muy contento con mi vida familiar</p>
+        
+        
+                                <p>
+        
+                                  <label><input type="radio" name="E6" value="1"/> 1</label>
+        <label><input type="radio" name="E6" value="2"/> 2</label>
+        <label><input type="radio" name="E6" value="3"/> 3</label>
+        <label><input type="radio" name="E6" value="4"/> 4</label>
+        <label><input type="radio" name="E6" value="5"/> 5</label>
+        <label><input type="radio" name="E6" value="6"/> 6</label>
+        <label><input type="radio" name="E6" value="7"/> 7</label>
+        <label><input type="radio" name="E6" value="8"/> 8</label>
+        <label><input type="radio" name="E6" value="9"/> 9</label>
+        <label><input type="radio" name="E6" value="10"/> 10</label>
+                                </p>
+        
+                               <p>Tenemos un fuerte sentido familiar con tradiciones y rituales</p>
+        
+        
+                                <p>
+        
+                                  <label><input type="radio" name="E7" value="1"/> 1</label>
+        <label><input type="radio" name="E7" value="2"/> 2</label>
+        <label><input type="radio" name="E7" value="3"/> 3</label>
+        <label><input type="radio" name="E7" value="4"/> 4</label>
+        <label><input type="radio" name="E7" value="5"/> 5</label>
+        <label><input type="radio" name="E7" value="6"/> 6</label>
+        <label><input type="radio" name="E7" value="7"/> 7</label>
+        <label><input type="radio" name="E7" value="8"/> 8</label>
+        <label><input type="radio" name="E7" value="9"/> 9</label>
+        <label><input type="radio" name="E7" value="10"/> 10</label>
+                                </p>
+        
+                               <p>Tengo tiempo para dedicarles a las personas que me importan</p>
+        
+        
+                                <p>
+        
+                                  <label><input type="radio" name="E8" value="1"/> 1</label>
+        <label><input type="radio" name="E8" value="2"/> 2</label>
+        <label><input type="radio" name="E8" value="3"/> 3</label>
+        <label><input type="radio" name="E8" value="4"/> 4</label>
+        <label><input type="radio" name="E8" value="5"/> 5</label>
+        <label><input type="radio" name="E8" value="6"/> 6</label>
+        <label><input type="radio" name="E8" value="7"/> 7</label>
+        <label><input type="radio" name="E8" value="8"/> 8</label>
+        <label><input type="radio" name="E8" value="9"/> 9</label>
+        <label><input type="radio" name="E8" value="10"/> 10</label>
+                                </p>
+        
+                               <p>Mi familia y mis amigos saben que pueden depender de mi  cuando me necesitan</p>
+        
+        
+                                <p>
+        
+                                  <label><input type="radio" name="E9" value="1"/> 1</label>
+        <label><input type="radio" name="E9" value="2"/> 2</label>
+        <label><input type="radio" name="E9" value="3"/> 3</label>
+        <label><input type="radio" name="E9" value="4"/> 4</label>
+        <label><input type="radio" name="E9" value="5"/> 5</label>
+        <label><input type="radio" name="E9" value="6"/> 6</label>
+        <label><input type="radio" name="E9" value="7"/> 7</label>
+        <label><input type="radio" name="E9" value="8"/> 8</label>
+        <label><input type="radio" name="E9" value="9"/> 9</label>
+        <label><input type="radio" name="E9" value="10"/> 10</label>
+                                </p>
+        
+        <p>Resuelvo rápidamente los conflictos que se presentan con familiares o con mis amigos.</p>
+        
+        <p>
+        
+        <label><input type="radio" name="E10" value="1"/> 1</label>
+        <label><input type="radio" name="E10" value="2"/> 2</label>
+        <label><input type="radio" name="E10" value="3"/> 3</label>
+        <label><input type="radio" name="E10" value="4"/> 4</label>
+        <label><input type="radio" name="E10" value="5"/> 5</label>
+        <label><input type="radio" name="E10" value="6"/> 6</label>
+        <label><input type="radio" name="E10" value="7"/> 7</label>
+        <label><input type="radio" name="E10" value="8"/> 8</label>
+        <label><input type="radio" name="E10" value="9"/> 9</label>
+        <label><input type="radio" name="E10" value="10"/> 10</label>
+        </p>
+        <p>
+                                
+        <h3>DINERO</h3>
+        </p>
+        <p>Mi estilo de vida va de acuerdo a mis ingresos</p>
+        
+        
+        <p>
+        
+        <label><input type="radio" name="G1" value="1"/> 1</label>
+        <label><input type="radio" name="G1" value="2"/> 2</label>
+        <label><input type="radio" name="G1" value="3"/> 3</label>
+        <label><input type="radio" name="G1" value="4"/> 4</label>
+        <label><input type="radio" name="G1" value="5"/> 5</label>
+        <label><input type="radio" name="G1" value="6"/> 6</label>
+        <label><input type="radio" name="G1" value="7"/> 7</label>
+        <label><input type="radio" name="G1" value="8"/> 8</label>
+        <label><input type="radio" name="G1" value="9"/> 9</label>
+        <label><input type="radio" name="G1" value="10"/> 10</label>
+        </p>
+        <p>Ahorro cuando menos el 10% de mi ingreso</p>
+        
+        <p>
+        
+        <label><input type="radio" name="G2" value="1"/> 1</label>
+        <label><input type="radio" name="G2" value="2"/> 2</label>
+        <label><input type="radio" name="G2" value="3"/> 3</label>
+        <label><input type="radio" name="G2" value="4"/> 4</label>
+        <label><input type="radio" name="G2" value="5"/> 5</label>
+        <label><input type="radio" name="G2" value="6"/> 6</label>
+        <label><input type="radio" name="G2" value="7"/> 7</label>
+        <label><input type="radio" name="G2" value="8"/> 8</label>
+        <label><input type="radio" name="G2" value="9"/> 9</label>
+        <label><input type="radio" name="G2" value="10"/> 10</label>
+        </p>
+        <p>Presupuesto los gastos mensuales de mí casa así como personales</p>
+        
+        <p>
+        
+        <label><input type="radio" name="G3" value="1"/> 1</label>
+        <label><input type="radio" name="G3" value="2"/> 2</label>
+        <label><input type="radio" name="G3" value="3"/> 3</label>
+        <label><input type="radio" name="G3" value="4"/> 4</label>
+        <label><input type="radio" name="G3" value="5"/> 5</label>
+        <label><input type="radio" name="G3" value="6"/> 6</label>
+        <label><input type="radio" name="G3" value="7"/> 7</label>
+        <label><input type="radio" name="G3" value="8"/> 8</label>
+        <label><input type="radio" name="G3" value="9"/> 9</label>
+        <label><input type="radio" name="G3" value="10"/> 10</label>
+        </p>
+        <p>Puedo pagar mensualmente la cuota de mis deudas </p>
+        
+        <p>
+        
+        <label><input type="radio" name="G4" value="1"/> 1</label>
+        <label><input type="radio" name="G4" value="2"/> 2</label>
+        <label><input type="radio" name="G4" value="3"/> 3</label>
+        <label><input type="radio" name="G4" value="4"/> 4</label>
+        <label><input type="radio" name="G4" value="5"/> 5</label>
+        <label><input type="radio" name="G4" value="6"/> 6</label>
+        <label><input type="radio" name="G4" value="7"/> 7</label>
+        <label><input type="radio" name="G4" value="8"/> 8</label>
+        <label><input type="radio" name="G4" value="9"/> 9</label>
+        <label><input type="radio" name="G4" value="10"/> 10</label>
+        </p>
+        <p>Tengo seguros de gastos médicos adecuados</p>
+        
+        <p>
+        
+        <label><input type="radio" name="G5" value="1"/> 1</label>
+        <label><input type="radio" name="G5" value="2"/> 2</label>
+        <label><input type="radio" name="G5" value="3"/> 3</label>
+        <label><input type="radio" name="G5" value="4"/> 4</label>
+        <label><input type="radio" name="G5" value="5"/> 5</label>
+        <label><input type="radio" name="G5" value="6"/> 6</label>
+        <label><input type="radio" name="G5" value="7"/> 7</label>
+        <label><input type="radio" name="G5" value="8"/> 8</label>
+        <label><input type="radio" name="G5" value="9"/> 9</label>
+        <label><input type="radio" name="G5" value="10"/> 10</label>
+        </p>
+        <p>No vivo estresado por cuestiones de dinero</p>
+        
+        <p>
+        
+        <label><input type="radio" name="G6" value="1"/> 1</label>
+        <label><input type="radio" name="G6" value="2"/> 2</label>
+        <label><input type="radio" name="G6" value="3"/> 3</label>
+        <label><input type="radio" name="G6" value="4"/> 4</label>
+        <label><input type="radio" name="G6" value="5"/> 5</label>
+        <label><input type="radio" name="G6" value="6"/> 6</label>
+        <label><input type="radio" name="G6" value="7"/> 7</label>
+        <label><input type="radio" name="G6" value="8"/> 8</label>
+        <label><input type="radio" name="G6" value="9"/> 9</label>
+        <label><input type="radio" name="G6" value="10"/> 10</label>
+        </p>
+        <p>Tengo objetivos claros en mis inversiones</p>
+        
+        <p>
+        
+        <label><input type="radio" name="G7" value="1"/> 1</label>
+        <label><input type="radio" name="G7" value="2"/> 2</label>
+        <label><input type="radio" name="G7" value="3"/> 3</label>
+        <label><input type="radio" name="G7" value="4"/> 4</label>
+        <label><input type="radio" name="G7" value="5"/> 5</label>
+        <label><input type="radio" name="G7" value="6"/> 6</label>
+        <label><input type="radio" name="G7" value="7"/> 7</label>
+        <label><input type="radio" name="G7" value="8"/> 8</label>
+        <label><input type="radio" name="G7" value="9"/> 9</label>
+        <label><input type="radio" name="G7" value="10"/> 10</label>
+        </p>
+        <p>Pago mis gastos y mis deudas a tiempo</p>
+        
+        <p>
+        
+        <label><input type="radio" name="G8" value="1"/> 1</label>
+        <label><input type="radio" name="G8" value="2"/> 2</label>
+        <label><input type="radio" name="G8" value="3"/> 3</label>
+        <label><input type="radio" name="G8" value="4"/> 4</label>
+        <label><input type="radio" name="G8" value="5"/> 5</label>
+        <label><input type="radio" name="G8" value="6"/> 6</label>
+        <label><input type="radio" name="G8" value="7"/> 7</label>
+        <label><input type="radio" name="G8" value="8"/> 8</label>
+        <label><input type="radio" name="G8" value="9"/> 9</label>
+        <label><input type="radio" name="G8" value="10"/> 10</label>
+        </p>
+        <p>Sé  el valor total de todos mis activos</p>
+        
+        <p>
+        
+        <label><input type="radio" name="G9" value="1"/> 1</label>
+        <label><input type="radio" name="G9" value="2"/> 2</label>
+        <label><input type="radio" name="G9" value="3"/> 3</label>
+        <label><input type="radio" name="G9" value="4"/> 4</label>
+        <label><input type="radio" name="G9" value="5"/> 5</label>
+        <label><input type="radio" name="G9" value="6"/> 6</label>
+        <label><input type="radio" name="G9" value="7"/> 7</label>
+        <label><input type="radio" name="G9" value="8"/> 8</label>
+        <label><input type="radio" name="G9" value="9"/> 9</label>
+        <label><input type="radio" name="G9" value="10"/> 10</label>
+        </p>
+        <p>Mi pareja y/o familia nos comunicamos bien en cuestiones de dinero</p>
+        <p>
+        
+        <label><input type="radio" name="G10" value="1"/> 1</label>
+        <label><input type="radio" name="G10" value="2"/> 2</label>
+        <label><input type="radio" name="G10" value="3"/> 3</label>
+        <label><input type="radio" name="G10" value="4"/> 4</label>
+        <label><input type="radio" name="G10" value="5"/> 5</label>
+        <label><input type="radio" name="G10" value="6"/> 6</label>
+        <label><input type="radio" name="G10" value="7"/> 7</label>
+        <label><input type="radio" name="G10" value="8"/> 8</label>
+        <label><input type="radio" name="G10" value="9"/> 9</label>
+        <label><input type="radio" name="G10" value="10"/> 10</label>
+        </p>
+        
+         <p>
+        <h3>Diversión y recreación</h3>
+        </p>
+        
+        
+        <p>Estoy satisfecho con el tipo y cantidad de diversión y recreación que tengo en mi vida</p>
+        
+        <p>
+        
+        <label><input type="radio" name="H1" value="1"/> 1</label>
+        <label><input type="radio" name="H1" value="2"/> 2</label>
+        <label><input type="radio" name="H1" value="3"/> 3</label>
+        <label><input type="radio" name="H1" value="4"/> 4</label>
+        <label><input type="radio" name="H1" value="5"/> 5</label>
+        <label><input type="radio" name="H1" value="6"/> 6</label>
+        <label><input type="radio" name="H1" value="7"/> 7</label>
+        <label><input type="radio" name="H1" value="8"/> 8</label>
+        <label><input type="radio" name="H1" value="9"/> 9</label>
+        <label><input type="radio" name="H1" value="10"/> 10</label>
+        </p>
+        <p>Salgo de vacaciones cuando menos una vez al año</p>
+        <p>
+        
+        <label><input type="radio" name="H2" value="1"/> 1</label>
+        <label><input type="radio" name="H2" value="2"/> 2</label>
+        <label><input type="radio" name="H2" value="3"/> 3</label>
+        <label><input type="radio" name="H2" value="4"/> 4</label>
+        <label><input type="radio" name="H2" value="5"/> 5</label>
+        <label><input type="radio" name="H2" value="6"/> 6</label>
+        <label><input type="radio" name="H2" value="7"/> 7</label>
+        <label><input type="radio" name="H2" value="8"/> 8</label>
+        <label><input type="radio" name="H2" value="9"/> 9</label>
+        <label><input type="radio" name="H2" value="10"/> 10</label>
+        </p>
+        
+        <p>Tengo pasatiempos o hobbies que no tienen que ver con mi trabajo</p>
+        <p>
+        
+        <label><input type="radio" name="H3" value="1"/> 1</label>
+        <label><input type="radio" name="H3" value="2"/> 2</label>
+        <label><input type="radio" name="H3" value="3"/> 3</label>
+        <label><input type="radio" name="H3" value="4"/> 4</label>
+        <label><input type="radio" name="H3" value="5"/> 5</label>
+        <label><input type="radio" name="H3" value="6"/> 6</label>
+        <label><input type="radio" name="H3" value="7"/> 7</label>
+        <label><input type="radio" name="H3" value="8"/> 8</label>
+        <label><input type="radio" name="H3" value="9"/> 9</label>
+        <label><input type="radio" name="H3" value="10"/> 10</label>
+        </p>
+        
+        <p>Tengo actividades de recreación que disfruto en familia</p>
+        
+        <p>
+        
+        <label><input type="radio" name="H4" value="1"/> 1</label>
+        <label><input type="radio" name="H4" value="2"/> 2</label>
+        <label><input type="radio" name="H4" value="3"/> 3</label>
+        <label><input type="radio" name="H4" value="4"/> 4</label>
+        <label><input type="radio" name="H4" value="5"/> 5</label>
+        <label><input type="radio" name="H4" value="6"/> 6</label>
+        <label><input type="radio" name="H4" value="7"/> 7</label>
+        <label><input type="radio" name="H4" value="8"/> 8</label>
+        <label><input type="radio" name="H4" value="9"/> 9</label>
+        <label><input type="radio" name="H4" value="10"/> 10</label>
+        </p>
+        <p>Tengo una vida plena fuera de mi trabajo</p>
+        
+        <p>
+        
+        <label><input type="radio" name="H5" value="1"/> 1</label>
+        <label><input type="radio" name="H5" value="2"/> 2</label>
+        <label><input type="radio" name="H5" value="3"/> 3</label>
+        <label><input type="radio" name="H5" value="4"/> 4</label>
+        <label><input type="radio" name="H5" value="5"/> 5</label>
+        <label><input type="radio" name="H5" value="6"/> 6</label>
+        <label><input type="radio" name="H5" value="7"/> 7</label>
+        <label><input type="radio" name="H5" value="8"/> 8</label>
+        <label><input type="radio" name="H5" value="9"/> 9</label>
+        <label><input type="radio" name="H5" value="10"/> 10</label>
+        </p>
+        <p>Tengo diversión y recreación los fines de semana</p>
+        
+        <p>
+        
+        <label><input type="radio" name="H6" value="1"/> 1</label>
+        <label><input type="radio" name="H6" value="2"/> 2</label>
+        <label><input type="radio" name="H6" value="3"/> 3</label>
+        <label><input type="radio" name="H6" value="4"/> 4</label>
+        <label><input type="radio" name="H6" value="5"/> 5</label>
+        <label><input type="radio" name="H6" value="6"/> 6</label>
+        <label><input type="radio" name="H6" value="7"/> 7</label>
+        <label><input type="radio" name="H6" value="8"/> 8</label>
+        <label><input type="radio" name="H6" value="9"/> 9</label>
+        <label><input type="radio" name="H6" value="10"/> 10</label>
+        </p>
+        <p>Pertenezco a clubes  o asociaciones donde existen los espacios para divertirme</p>
+        
+        <p>
+        
+        <label><input type="radio" name="H7" value="1"/> 1</label>
+        <label><input type="radio" name="H7" value="2"/> 2</label>
+        <label><input type="radio" name="H7" value="3"/> 3</label>
+        <label><input type="radio" name="H7" value="4"/> 4</label>
+        <label><input type="radio" name="H7" value="5"/> 5</label>
+        <label><input type="radio" name="H7" value="6"/> 6</label>
+        <label><input type="radio" name="H7" value="7"/> 7</label>
+        <label><input type="radio" name="H7" value="8"/> 8</label>
+        <label><input type="radio" name="H7" value="9"/> 9</label>
+        <label><input type="radio" name="H7" value="10"/> 10</label>
+        </p>
+        <p>Celebramos los cumpleaños de todos los miembros de la familia</p>
+        
+        <p>
+        
+        <label><input type="radio" name="H8" value="1"/> 1</label>
+        <label><input type="radio" name="H8" value="2"/> 2</label>
+        <label><input type="radio" name="H8" value="3"/> 3</label>
+        <label><input type="radio" name="H8" value="4"/> 4</label>
+        <label><input type="radio" name="H8" value="5"/> 5</label>
+        <label><input type="radio" name="H8" value="6"/> 6</label>
+        <label><input type="radio" name="H8" value="7"/> 7</label>
+        <label><input type="radio" name="H8" value="8"/> 8</label>
+        <label><input type="radio" name="H8" value="9"/> 9</label>
+        <label><input type="radio" name="H8" value="10"/> 10</label>
+        </p>
+        <p>He tratado de hacer algo nuevo en los últimos 6 meses</p>
+        
+        <p>
+        
+        <label><input type="radio" name="H9" value="1"/> 1</label>
+        <label><input type="radio" name="H9" value="2"/> 2</label>
+        <label><input type="radio" name="H9" value="3"/> 3</label>
+        <label><input type="radio" name="H9" value="4"/> 4</label>
+        <label><input type="radio" name="H9" value="5"/> 5</label>
+        <label><input type="radio" name="H9" value="6"/> 6</label>
+        <label><input type="radio" name="H9" value="7"/> 7</label>
+        <label><input type="radio" name="H9" value="8"/> 8</label>
+        <label><input type="radio" name="H9" value="9"/> 9</label>
+        <label><input type="radio" name="H9" value="10"/> 10</label>
+        </p>
+        <p>Soy una persona feliz que disfruta la vida</p>   
+        <p>
+        
+        <label><input type="radio" name="H10" value="1"/> 1</label>
+        <label><input type="radio" name="H10" value="2"/> 2</label>
+        <label><input type="radio" name="H10" value="3"/> 3</label>
+        <label><input type="radio" name="H10" value="4"/> 4</label>
+        <label><input type="radio" name="H10" value="5"/> 5</label>
+        <label><input type="radio" name="H10" value="6"/> 6</label>
+        <label><input type="radio" name="H10" value="7"/> 7</label>
+        <label><input type="radio" name="H10" value="8"/> 8</label>
+        <label><input type="radio" name="H10" value="9"/> 9</label>
+        <label><input type="radio" name="H10" value="10"/> 10</label>
+        </p>                   
+        <form action="resultado_2.html" method="post" target="_blank">                       
+        <input type="submit"  value="enviar" >
+        
+    </div>
+    
+  </div>
+  <!-- Footer -->
+<footer class="page-footer font-small blue">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="www.fsfb.org.co"> Fundación Santa Fe</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+  <script type="text/javascript" src="js/jquery.js"></script>
+</body>
+</html>

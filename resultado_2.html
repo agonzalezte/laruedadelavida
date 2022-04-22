@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" href="img/logofsfb.ico">
+    <title>Resultados Rueda de la vida</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div class="container-fluid p-5 bg-primary text-white text-center">
+      <img src="img/Imagen1.png" alt="..." class="img-thumbnail"> 
+      
+    </div>
+
+    <div class="wrapper">
+      <h1>Resultados de la rueda de la vida</h1>
+	  <h4>DIAGNOSTICO:</h4>
+       
+  <!-- FULL WIDTH CONTAINER -->
+  <section class="lightcontainer">
+      <!-- SIDEBAR CONTAINER -->
+      <div class="sidebarcontainer">
+          <!-------( DE 0 A 99 PUNTOS )------------------ 100 PUNTOS -->
+          <div class="leftsidebarcontainer">
+             
+          </div>
+           <!------------------------------------------- 100 PUNTOS -->
+           <div class="leftsidebarcontainer">	
+            <div id="chart-container">
+              <canvas id="radarChart"></canvas>
+              </div>
+          
+           <p>Aquí puedes observar tus resultados; la maya VERDE representa el balance.
+              Y la maya ROJA, tus oportunidades y retos.</p>
+            RESULTADO EN PUNTOS:<br><br>
+             <h5><span style="color:#2400f3;" >TRABAJO:&nbsp; </span>33 Puntos de 100</h3>	
+             <h5><span style="color:#2400f3;" >SALUD:&nbsp; </span> 53 Puntos de 100</h3>
+             <h5><span style="color:#2400f3;" >ENTORNO FISICO:&nbsp; </span> 61 Puntos de 100</h3>
+             <h5><span style="color:#2400f3;" >DESARROLLO PERSONAL:&nbsp; </span> 60 Puntos de 100</h3>
+             <h5><span style="color:#2400f3;" >RELACIONES SIGNIFICATIVAS: &nbsp; </span>68 Puntos de 100</h3>
+             <h5><span style="color:#2400f3;" >DINERO:&nbsp; </span> 63 Puntos de 100</h3>
+             <h5><span style="color:#2400f3;" >DIVERSIÓN Y RECREACIÓN : &nbsp; </span>71 Puntos de 100</h3>				   
+              
+  
+</div>
+      </div>
+ <div>    
+<!-- Footer -->
+<footer class="page-footer font-small blue">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">
+    <a href="https://www.fsfb.org.co/wps/portal/fsfb/inicio/servicioensalud/!ut/p/z1/04_Sj9CPykssy0xPLMnMz0vMAfIjo8ziA_w9TAyNTQx83f2dXAwcQ4ICAgxDjQ2AQD-ckIIooLQBDuAI0h-FRYmjgVOQkRPQAHd_I6wKUMzwAivA4wagLxzzkowt0vWjilLTUotSi_RKi4CeyygpKSi2UjVQNSgvL9dLz89Pz0nVS87PVcWqJSO_uEQ_AlWlfkFuhEGWaU6Zj6OiIgDYhsEX/dz/d5/L2dBISEvZ0FBIS9nQSEh/"> Fundación SantaFe</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+</div> 
+<!-- Footer -->
+    <script src="script.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jquery.backstretch.min.js"></script>
+        <script type="text/javascript" src="js/jquery.colorbox-min.js"></script>
+        <script type="text/javascript" src="js/jquery.cbpQTRotator.min.js"></script>
+        <script type="text/javascript" src="js/jflickrfeed.min.js"></script>
+        <script src="js/Chart.js"></script>
+        <script type="text/javascript">
+  var data = {
+labels : [ "Trabajo","Salud","Entorno Fisico","Desarrollo Personal","Relaciones","Romance ","Dinero ","Diversión y recreación" ], 
+datasets : [
+{
+	label: "My First dataset",
+            fillColor: "rgba(50,205,50,0.4)",
+            strokeColor: "rgba(220,220,220,1)",
+            pointColor: "rgba(220,220,220,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+data : [ 90,85,95,90,95,90,85,100 ] 
+},
+{
+label: "My Second dataset",
+fillColor: "#FF3300",
+strokeColor: "FFFFFF",
+ pointColor: "FFFFFF",
+pointStrokeColor: "#fff",
+pointHighlightFill: "#fff",
+pointHighlightStroke: "rgba(151,187,205,1)",
+data: [19, 10, 10, 10, 10, 10, 10,22]
+        }
+]
+}
+var options = {
+scaleOverlay : true, 
+scaleShowLine : true,
+scaleLineColor : '#ffffff', 
+scaleLineWidth : 1, 
+scaleOverride : false, 	
+scaleSteps : null,
+scaleStepWidth : null,
+scaleStartValue : null,
+scaleShowLabels : true,
+scaleFontFamily : "'Calibri'", 
+scaleFontSize : 10, 
+scaleFontStyle : 'normal', 
+scaleFontColor : '#E7E7E7', 
+scaleShowLabelBackdrop : true, 
+scaleBackdropColor : '#000000', 
+scaleBackdropPaddingY : 2, 
+scaleBackdropPaddingX : 2, 
+angleShowLineOut : true,
+angleLineColor : '#E2E2E2', 
+angleLineWidth : 1, 
+pointDot : true, 
+pointDotRadius : 3, 
+pointDotStrokeWidth : 1, 
+pointLabelFontFamily : "'Arial'", 
+pointLabelFontStyle : 'normal', 
+pointLabelFontSize : 12, 
+pointLabelFontColor : '#FFFFFF', 
+datasetStroke : true,
+datasetStrokeWidth : 2, 
+datasetFill : true, 
+animation : true,
+animationSteps : 60, 
+animationEasing: 'easeOutQuart', 
+}
+var ctx = $("#radar_chart").get(0).getContext("2d");
+var myRadar = new Chart(ctx).Radar(data,options);
+
+</script>
+        <script type="text/javascript" src="js/custom.js"></script>        
+  </body>
+</html>
